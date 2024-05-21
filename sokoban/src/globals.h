@@ -18,6 +18,8 @@ const char PLAYER_ON_GOAL = '+';
 
 /* Levels */
 
+class level;
+
 struct level {
     size_t rows = 0, columns = 0;
     char *data = nullptr;
