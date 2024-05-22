@@ -31,9 +31,9 @@ void update_game() {
             if (IsKeyPressed(KEY_ESCAPE) || IsKeyPressed(KEY_ENTER)) {
                 game_state = GAME_STATE;
             } else if (IsKeyPressed(KEY_R)) {
-                game_level.unload_level();
+                game_level.unload();
                 level_index--;
-                game_level.load_level();
+                game_level.load_next();
                 game_state = GAME_STATE;
             }
             break;
@@ -77,7 +77,7 @@ int main() {
     load_images();
     load_sounds();
 
-    game_level.load_level();
+    game_level.load_next();
 
     while (!WindowShouldClose()) {
         BeginDrawing();
@@ -89,7 +89,7 @@ int main() {
     }
     CloseWindow();
 
-    game_level.unload_level();
+    game_level.unload();
     unload_sounds();
     unload_images();
     unload_fonts();

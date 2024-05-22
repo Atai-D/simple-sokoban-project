@@ -13,11 +13,11 @@ public:
     level();
     ~level();
 
-    void load_level();
-    void unload_level();
-    [[nodiscard]] bool is_cell_inside_level(int row, int column) const;
-    [[nodiscard]] char& get_level_cell(size_t row, size_t column) const;
-    void set_level_cell(size_t row, size_t column, char cell);
+    void load_next();
+    void unload();
+    [[nodiscard]] bool is_cell_inside(int row, int column) const;
+    [[nodiscard]] char& get_cell(size_t row, size_t column) const;
+    void set_cell(size_t row, size_t column, char cell);
     [[nodiscard]] size_t get_rows() const{
         return rows;
     }

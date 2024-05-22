@@ -77,7 +77,7 @@ void draw_loaded_level() {
             float x = shift_to_center_cell_by_x + static_cast<float>(column) * cell_size;
             float y = shift_to_center_cell_by_y + static_cast<float>(row)    * cell_size;
 
-            char cell = game_level.get_level_cell(row, column);
+            char cell = game_level.get_cell(row, column);
             switch (cell) {
                 case FLOOR:
                 case GOAL:

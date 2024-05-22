@@ -3,14 +3,15 @@
 #include "globals.h"
 #include <fstream>
 #include <sstream>
+#include <iostream>
 
 level::level() : rows(0), columns(0), data(nullptr) {};
 
 level::~level() {
-    unload_level();
+    unload();
 }
 
-void level::load_level() {
+void level::load_next() {
     level_index++;
     if (level_index >= LEVEL_COUNT) {
         level_index = 0;
@@ -18,7 +19,13 @@ void level::load_level() {
         create_victory_menu_background();
     }
 
-    auto level_info = parse_and_load_next_level();
+    level_info level_info{};
+
+    try{
+        level_info = parse_and_load_next_level();
+    } catch (const std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    };
 
     rows = level_info.rows;
     columns = level_info.columns;
@@ -28,13 +35,13 @@ void level::load_level() {
         for (size_t column = 0; column < columns; ++column) {
             char cell = level_info.level_data[row * columns + column];
             if (cell == PLAYER) {
-                set_level_cell(row, column, FLOOR);
-                game_player.spawn_player(row, column);
+                set_cell(row, column, FLOOR);
+                game_player.spawn(row, column);
             } else if (cell == PLAYER_ON_GOAL) {
-                set_level_cell(row, column, GOAL);
-                game_player.spawn_player(row, column);
+                set_cell(row, column, GOAL);
+                game_player.spawn(row, column);
             } else {
-                set_level_cell(row, column, cell);
+                set_cell(row, column, cell);
             }
         }
     }
@@ -42,7 +49,7 @@ void level::load_level() {
     derive_graphics_metrics_from_loaded_level();
 }
 
-void level::unload_level() {
+void level::unload() {
     if (data) {
         delete[] data;
         data = nullptr;
@@ -51,21 +58,23 @@ void level::unload_level() {
     columns = 0;
 }
 
-bool level::is_cell_inside_level(int row, int column) const {
+bool level::is_cell_inside(int row, int column) const {
     return row < rows && column < columns;
 }
 
-char& level::get_level_cell(size_t row, size_t column) const {
+char& level::get_cell(size_t row, size_t column) const {
     return data[row * columns + column];
 }
 
-void level::set_level_cell(size_t row, size_t column, char cell) {
+void level::set_cell(size_t row, size_t column, char cell) {
     data[row * columns + column] = cell;
 }
 
-
 std::vector<std::string> parse_sl_file() {
     std::ifstream sl_file("../data/levels.sl");
+    if (!sl_file.is_open()) {
+        throw std::runtime_error("Failed to open the file");
+    }
     std::stringstream buffer;
     buffer << sl_file.rdbuf();
     std::string input = buffer.str();
@@ -86,6 +95,10 @@ level_info parse_and_load_next_level() {
     level_info level_info{};
 
     auto levels = parse_sl_file();
+
+    if (level_index * 2 >= levels.size()) {
+        throw std::out_of_range("Invalid level index: " + std::to_string(level_index));
+    }
 
     std::string cur_level = levels[level_index * 2];
     std::vector<std::vector<char>> level_test;
