@@ -8,13 +8,13 @@
 
 /* Game Elements */
 
-constexpr char WALL = '#';
-constexpr char FLOOR = '-';
-constexpr char BOX = '$';
-constexpr char BOX_ON_GOAL = '*';
-constexpr char GOAL = '.';
-constexpr char PLAYER = '@';
-constexpr char PLAYER_ON_GOAL = '+';
+const char WALL = '#';
+const char FLOOR = '-';
+const char BOX = '$';
+const char BOX_ON_GOAL = '*';
+const char GOAL = '.';
+const char PLAYER = '@';
+const char PLAYER_ON_GOAL = '+';
 
 /* Levels */
 
@@ -24,59 +24,12 @@ class player;
 extern level game_level;
 extern player& game_player;
 
-//level game_level = level();
-//
-//player* game_player = player::get_instance();
-
-//struct level {
-//    size_t rows = 0, columns = 0;
-//    char *data = nullptr;
-//};
-//
 extern char LEVEL_1_DATA[];
 
-//level LEVEL_1 = {
-//    11, 19,
-//    LEVEL_1_DATA
-//};
-//
-//char LEVEL_2_DATA[] = {
-//    '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', ' ', ' ',
-//    '#', '.', '.', '-', '-', '#', '-', '-', '-', '-', '-', '#', '#', '#',
-//    '#', '.', '.', '-', '-', '#', '-', '$', '-', '-', '$', '-', '-', '#',
-//    '#', '.', '.', '-', '-', '#', '$', '#', '#', '#', '#', '-', '-', '#',
-//    '#', '.', '.', '-', '-', '-', '-', '@', '-', '#', '#', '-', '-', '#',
-//    '#', '.', '.', '-', '-', '#', '-', '#', '-', '-', '$', '-', '#', '#',
-//    '#', '#', '#', '#', '#', '#', '-', '#', '#', '$', '-', '$', '-', '#',
-//    ' ', ' ', '#', '-', '$', '-', '-', '$', '-', '$', '-', '$', '-', '#',
-//    ' ', ' ', '#', '-', '-', '-', '-', '#', '-', '-', '-', '-', '-', '#',
-//    ' ', ' ', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'
-//};
-//
-//level LEVEL_2 = {
-//    10, 14,
-//    LEVEL_2_DATA
-//};
-//
-//char LEVEL_3_DATA[] = {
-//    ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', '#', '#', '#', '#', '#', '#', '#', ' ',
-//    ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', '-', '-', '-', '-', '-', '@', '#', ' ',
-//    ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', '-', '$', '#', '$', '-', '#', '#', ' ',
-//    ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', '-', '$', '-', '-', '$', '#', ' ', ' ',
-//    ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '#', '#', '$', '-', '$', '-', '#', ' ', ' ',
-//    '#', '#', '#', '#', '#', '#', '#', '#', '#', '-', '$', '-', '#', '-', '#', '#', '#',
-//    '#', '.', '.', '.', '.', '-', '-', '#', '#', '-', '$', '-', '-', '$', '-', '-', '#',
-//    '#', '#', '.', '.', '.', '-', '-', '-', '-', '$', '-', '-', '$', '-', '-', '-', '#',
-//    '#', '.', '.', '.', '.', '-', '-', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#',
-//    '#', '#', '#', '#', '#', '#', '#', '#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '
-//};
-//
-//level LEVEL_3 = {
-//    10, 17,
-//    LEVEL_3_DATA
-//};
-//
-const size_t LEVEL_COUNT = 3;
+extern char LEVEL_2_DATA[];
+
+const size_t LEVEL_COUNT = 2;
+
 //level LEVELS[LEVEL_COUNT] = {
 //    LEVEL_1,
 //    LEVEL_2,
@@ -85,22 +38,16 @@ const size_t LEVEL_COUNT = 3;
 
 /* Loaded Level Data */
 
-//level level;
 extern size_t level_index;
-//
-/* Player Data */
-//
-//size_t player_row;
-//size_t player_column;
 
 /* Graphics Metrics */
 
-extern const float CELL_SCALE; // An aesthetic parameter to add some negative space around level
-extern const float SCREEN_SCALE_DIVISOR; // The divisor was found through experimentation
+const float CELL_SCALE = 0.6f;
+const float SCREEN_SCALE_DIVISOR = 700.0f;
 
 extern float screen_width;
 extern float screen_height;
-extern float screen_scale; // Used to scale text/UI components size and displacements based on the screen size
+extern float screen_scale;
 extern float cell_size;
 extern float shift_to_center_cell_by_x;
 extern float shift_to_center_cell_by_y;
@@ -111,22 +58,22 @@ extern Font menu_font;
 
 /* Menu Text Parameters */
 
-extern const std::string MENU_TITLE;
-extern const float MENU_TITLE_FONT_SIZE;
-extern const float MENU_TITLE_Y_SHIFT;
-extern const Color MENU_TITLE_COLOR;
+const std::string MENU_TITLE     = "Sokoban";
+const float MENU_TITLE_FONT_SIZE = 200.0f;
+const float MENU_TITLE_Y_SHIFT   = 10.0f;
+const Color MENU_TITLE_COLOR     = RED;
 
-extern const std::string MENU_SUBTITLE;
-extern const float MENU_SUBTITLE_FONT_SIZE;
-extern const float MENU_SUBTITLE_Y_SHIFT;
-extern const Color MENU_SUBTITLE_COLOR;
+const std::string MENU_SUBTITLE     = "Press Enter to start the game";
+const float MENU_SUBTITLE_FONT_SIZE = 30.0f;
+const float MENU_SUBTITLE_Y_SHIFT   = 80.0f;
+const Color MENU_SUBTITLE_COLOR     = WHITE;
 
 /* Game Text Parameters */
 
-extern const float GAME_LEVEL_FONT_SIZE;
-extern const float GAME_LEVEL_Y_SHIFT;
-extern const Color GAME_LEVEL_COLOR1;
-extern const Color GAME_LEVEL_COLOR2;
+const float GAME_LEVEL_FONT_SIZE = 70.0f;
+const float GAME_LEVEL_Y_SHIFT   = 30.0f;
+const Color GAME_LEVEL_COLOR1    = GRAY;
+const Color GAME_LEVEL_COLOR2    = WHITE;
 
 /* Images and Sprites */
 
@@ -155,10 +102,10 @@ extern Sound exit_sound;
 
 /* Reload Request Text Parameters */
 
-extern const std::string RELOAD_REQ_TITLE;
-extern const float RELOAD_REQ_TITLE_FONT_SIZE;
-extern const float RELOAD_REQ_TITLE_Y_SHIFT;
-extern const Color RELOAD_REQ_TITLE_COLOR ;
+const std::string RELOAD_REQ_TITLE     = "Press R to restart the level";
+const float RELOAD_REQ_TITLE_FONT_SIZE = 30.0f;
+const float RELOAD_REQ_TITLE_Y_SHIFT   = 0.0f;
+const Color RELOAD_REQ_TITLE_COLOR     = WHITE;
 
 /* Victory Menu Background */
 
@@ -169,24 +116,23 @@ struct victory_ball {
 };
 
 const size_t VICTORY_BALL_COUNT = 2000;
-extern const float VICTORY_BALL_MAX_SPEED;
-extern const float VICTORY_BALL_MIN_RADIUS;
-extern const float VICTORY_BALL_MAX_RADIUS;
-extern const Color VICTORY_BALL_COLOR;
-extern const unsigned char VICTORY_BALL_TRAIL_TRANSPARENCY;
+const float VICTORY_BALL_MAX_SPEED  = 2.0f;
+const float VICTORY_BALL_MIN_RADIUS = 2.0f;
+const float VICTORY_BALL_MAX_RADIUS = 3.0f;
+const Color VICTORY_BALL_COLOR      = { 180, 180, 180, 255 };
+const unsigned char VICTORY_BALL_TRAIL_TRANSPARENCY = 10;
 extern victory_ball victory_balls[VICTORY_BALL_COUNT];
 
 /* Victory Menu Text Parameters */
+const std::string VICTORY_TITLE     = "You Won!";
+const float VICTORY_TITLE_FONT_SIZE = 200.0f;
+const float VICTORY_TITLE_Y_SHIFT   = 10.0f;
+const Color VICTORY_TITLE_COLOR     = RED;
 
-extern const std::string VICTORY_TITLE;
-extern const float VICTORY_TITLE_FONT_SIZE;
-extern const float VICTORY_TITLE_Y_SHIFT;
-extern const Color VICTORY_TITLE_COLOR;
-
-extern const std::string VICTORY_SUBTITLE;
-extern const float VICTORY_SUBTITLE_FONT_SIZE;
-extern const float VICTORY_SUBTITLE_Y_SHIFT;
-extern const Color VICTORY_SUBTITLE_COLOR;
+const std::string VICTORY_SUBTITLE     = "Press Enter to go back to menu";
+const float VICTORY_SUBTITLE_FONT_SIZE = 30.0f;
+const float VICTORY_SUBTITLE_Y_SHIFT   = 80.0f;
+const Color VICTORY_SUBTITLE_COLOR     = WHITE;
 
 /* Frame Counter */
 
@@ -204,20 +150,6 @@ enum game_state {
 extern game_state game_state;
 
 /* Forward Declarations */
-
-// LEVELS_H
-
-//void load_next_level();
-//void unload_level();
-//bool is_cell_inside_level(int row, int column);
-//char& get_level_cell(size_t row, size_t column);
-//void set_level_cell(size_t row, size_t column, char cell);
-
-// PLAYER_H
-
-//void spawn_player(size_t row, size_t column);
-//void move_player(int dx, int dy);
-
 // GRAPHICS_H
 
 void draw_menu();
