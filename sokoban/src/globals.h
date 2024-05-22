@@ -24,19 +24,7 @@ class player;
 extern level game_level;
 extern player& game_player;
 
-extern char LEVEL_1_DATA[];
-
-extern char LEVEL_2_DATA[];
-
-const size_t LEVEL_COUNT = 2;
-
-//level LEVELS[LEVEL_COUNT] = {
-//    LEVEL_1,
-//    LEVEL_2,
-//    LEVEL_3
-//};
-
-/* Loaded Level Data */
+extern const size_t LEVEL_COUNT;
 
 extern size_t level_index;
 

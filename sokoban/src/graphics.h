@@ -42,7 +42,7 @@ void draw_player_level() {
     std::string level_text = std::string("Level ");
     level_text += std::to_string(level_index + 1);
     level_text += " out of ";
-    level_text += std::to_string(3);
+    level_text += std::to_string(LEVEL_COUNT);
 
     Vector2 level_size = MeasureTextEx(menu_font, level_text.c_str(), level_font_size, 1);
     Vector2 level_position = { (screen_width - level_size.x) * 0.5f, level_top_margin };

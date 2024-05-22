@@ -56,11 +56,11 @@ void player::move(int dx, int dy) {
                 }
             }
 
-//            if (level_solved) {
-//                level.unload_level();
-//                level.load_level(LEVELS[++level_index % LEVEL_COUNT]);
-//                play_sound(exit_sound);
-//            }
+            if (level_solved) {
+                game_level.unload_level();
+                game_level.load_level();
+                play_sound(exit_sound);
+            }
         }
     }
 }

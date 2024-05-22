@@ -1,6 +1,4 @@
-#include <iostream>
 #include "raylib.h"
-
 #include "globals.h"
 #include "level.h"
 #include "graphics.h"
@@ -34,7 +32,8 @@ void update_game() {
                 game_state = GAME_STATE;
             } else if (IsKeyPressed(KEY_R)) {
                 game_level.unload_level();
-                game_level.load_level(LEVEL_1_DATA);
+                level_index--;
+                game_level.load_level();
                 game_state = GAME_STATE;
             }
             break;
@@ -77,7 +76,8 @@ int main() {
     load_fonts();
     load_images();
     load_sounds();
-    game_level.load_level(LEVEL_1_DATA);
+
+    game_level.load_level();
 
     while (!WindowShouldClose()) {
         BeginDrawing();
