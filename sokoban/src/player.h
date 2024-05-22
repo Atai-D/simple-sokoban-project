@@ -6,7 +6,7 @@
 class player {
 public:
     static player& get_instance();
-    void move(int dx, int dy, level &level);
+    void move(int dx, int dy);
     void spawn_player(int row, int column);
     [[nodiscard]] int get_row() const {
         return player_row;
