@@ -9,7 +9,7 @@
 #include <cassert>
 
 void load_fonts() {
-    menu_font = LoadFont("data/fonts/ARCADECLASSIC.TTF");
+    menu_font = LoadFont("../data/fonts/ARCADECLASSIC.TTF");
 }
 
 void unload_fonts() {
@@ -17,12 +17,12 @@ void unload_fonts() {
 }
 
 void load_images() {
-    wall_image        = LoadTexture("data/images/wall.png");
-    floor_image       = LoadTexture("data/images/floor.png");
-    goal_image        = LoadTexture("data/images/goal.png");
-    box_image         = LoadTexture("data/images/box.png");
-    box_on_goal_image = LoadTexture("data/images/box-on-goal.png");
-    player_sprite     = load_sprite("data/images/player/player", ".png", 11);
+    wall_image        = LoadTexture("../data/images/wall.png");
+    floor_image       = LoadTexture("../data/images/floor.png");
+    goal_image        = LoadTexture("../data/images/goal.png");
+    box_image         = LoadTexture("../data/images/box.png");
+    box_on_goal_image = LoadTexture("../data/images/box-on-goal.png");
+    player_sprite     = load_sprite("../data/images/player/player", ".png", 11);
 }
 
 void unload_images() {

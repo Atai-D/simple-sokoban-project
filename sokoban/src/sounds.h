@@ -8,8 +8,8 @@
 void load_sounds() {
     InitAudioDevice();
 
-    goal_sound = LoadSound("data/sounds/goal.wav");
-    exit_sound = LoadSound("data/sounds/exit.wav");
+    goal_sound = LoadSound("../data/sounds/goal.wav");
+    exit_sound = LoadSound("../data/sounds/exit.wav");
 }
 
 void unload_sounds() {
