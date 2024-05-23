@@ -21,7 +21,7 @@ void level::load_next() {
     level_info level_info{};
 
     try{
-        level_info = parse_and_load_next_level();
+        level_info = parse_level();
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
     };

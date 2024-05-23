@@ -31,7 +31,7 @@ private:
     char *data;
 };
 
-level_info parse_and_load_next_level();
+level_info parse_level();
 
 size_t get_level_count();
 

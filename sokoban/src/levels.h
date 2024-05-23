@@ -28,7 +28,7 @@ std::vector<std::string> parse_sl_file() {
     return levels;
 }
 
-level_info parse_and_load_next_level() {
+level_info parse_level() {
     level_info level_info{};
 
     auto levels = parse_sl_file();
