@@ -72,6 +72,5 @@ void level::set_cell(size_t row, size_t column, char cell) {
     if (is_cell_inside(row, column)) {
         data[row * columns + column] = cell;
     }
-    throw std::out_of_range("Sell is outside of level");
 }
 
