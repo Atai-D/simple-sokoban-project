@@ -9,7 +9,7 @@ player& player::get_instance() {
 
 player::player() : player_row(0), player_column(0){}
 
-player::~player() {}
+player::~player() = default;
 
 void player::spawn(int row, int column) {
     player_row = row;
