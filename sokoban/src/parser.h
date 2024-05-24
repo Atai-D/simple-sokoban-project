@@ -1,5 +1,5 @@
-#ifndef LEVELS_H
-#define LEVELS_H
+#ifndef PARSER_H
+#define PARSER_H
 
 #include <fstream>
 #include <sstream>
@@ -111,4 +111,4 @@ size_t get_level_count() {
     return level.size() / 2;
 }
 
-#endif // LEVELS_H
+#endif // PARSER_H
