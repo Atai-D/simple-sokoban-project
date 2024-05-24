@@ -4,6 +4,7 @@
 #include "graphics.h"
 #include "images.h"
 #include "sounds.h"
+#include "iostream"
 
 void update_game() {
     switch (game_state) {
@@ -82,8 +83,12 @@ int main() {
     while (!WindowShouldClose()) {
         BeginDrawing();
 
-        update_game();
-        draw_game();
+        try{
+            update_game();
+            draw_game();
+        } catch (const std::exception& e) {
+            std::cerr << "Error: " << e.what() << std::endl;
+        };
 
         EndDrawing();
     }

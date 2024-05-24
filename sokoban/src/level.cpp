@@ -62,10 +62,16 @@ bool level::is_cell_inside(int row, int column) const {
 }
 
 char& level::get_cell(size_t row, size_t column) const {
-    return data[row * columns + column];
+    if (is_cell_inside(row, column)) {
+        return data[row * columns + column];
+    }
+    throw std::out_of_range("Sell is outside of level");
 }
 
 void level::set_cell(size_t row, size_t column, char cell) {
-    data[row * columns + column] = cell;
+    if (is_cell_inside(row, column)) {
+        data[row * columns + column] = cell;
+    }
+    throw std::out_of_range("Sell is outside of level");
 }
 
